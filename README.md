@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/logo.svg" alt="Ration logo: a knife cutting a slice of bread so thin you can see through it" width="140" /></p>
+<p align="center"><img src="assets/logo.png" alt="Ration logo: a knife cutting a slice of bread so thin you can see through it" width="160" /></p>
 
 <h1 align="center">ration</h1>
 
