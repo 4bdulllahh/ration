@@ -26,6 +26,14 @@ guard '{"tool_input":{"subagent_type":"Explore","prompt":"use \"subagent_type\":
 guard "$(printf '{\n  "tool_input": {\n    "model": "sonnet"\n  }\n}')" || fail "guard should allow a model on its own line"
 printf '%s' "$no_model" | sh "$hook" guard 2>&1 | grep -q "Ration blocked" || fail "guard should explain the block"
 
+log="$HOME/.claude/ration.log"
+today=$(date +%F)
+[ "$(wc -l < "$log" | tr -d ' ')" = 3 ] || fail "log should have one line per allowed launch only"
+[ "$(sed -n 1p "$log")" = "$today general haiku" ] || fail "log line for an explicit model"
+[ "$(sed -n 2p "$log")" = "$today ration:scout pinned" ] || fail "log line for a ration helper"
+guard '{"tool_input":{"subagent_type":"ration:worker","model":"hai ku\nx; rm"}}'
+[ "$(sed -n 4p "$log")" = "$today ration:worker haikunxrm" ] || fail "log values are stripped to safe characters"
+
 [ "$(sh "$hook" prompt)" = "Ration is on (balanced): follow the ration rules." ] || fail "balanced prompt line"
 sh "$hook" start | grep -q "^# Ration rules" || fail "start should print rules.md"
 sh "$hook" start | head -n 1 | grep -q "(balanced)" || fail "start should name the preset"

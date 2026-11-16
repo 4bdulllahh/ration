@@ -21,6 +21,15 @@ if [ "$1" = guard ]; then
   key='(^|[^\\])"model"[[:space:]]*:'
   own='(^|[^\\])"subagent_type"[[:space:]]*:[[:space:]]*"ration:'
   if printf '%s' "$input" | grep -Eq "$key|$own"; then
+    # One line per allowed launch, for /ration stats: date, helper, model.
+    # shortcut: the log is never trimmed (about 30 bytes a launch), trim it if that matters.
+    field() {
+      printf '%s' "$input" | grep -Eo "(^|[^\\\\])\"$1\"[[:space:]]*:[[:space:]]*\"[^\"]*\"" |
+        head -n 1 | sed 's/.*"\([^"]*\)"$/\1/' | tr -cd 'A-Za-z0-9:._-'
+    }
+    helper=$(field subagent_type)
+    model=$(field model)
+    echo "$(date +%F) ${helper:-general} ${model:-pinned}" >> "$HOME/.claude/ration.log"
     exit 0
   fi
   echo "Ration blocked this launch: no model chosen. Use ration:scout, ration:worker or ration:checker, or pass an explicit model (haiku, sonnet or opus) as the ration rules say." >&2
