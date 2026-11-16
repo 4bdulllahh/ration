@@ -1,0 +1,8 @@
+{
+  "name": "ration",
+  "version": "0.1.0",
+  "description": "Make Claude Code spend fewer tokens: easy jobs go to cheaper models and lower effort, replies stay short.",
+  "author": { "name": "Abdullah", "url": "https://abdullahexe.online" },
+  "repository": "https://github.com/4bdulllahh/ration",
+  "license": "MIT"
+}
