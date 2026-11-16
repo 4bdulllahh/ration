@@ -1,7 +1,7 @@
 ---
 name: ration
 description: Turn token rationing on or off. When on, Claude hands easy jobs to cheaper models and lower effort through subagents. Use when the user types /ration.
-argument-hint: "[on|off|balanced|frugal|status]"
+argument-hint: "[on|off|balanced|frugal|status|help|why|tips|handover]"
 disable-model-invocation: true
 ---
 
@@ -28,7 +28,8 @@ rewrite it. Read and write it with the shell you have:
 | `balanced` or `frugal` | Turn on with that preset, or switch preset if already on. |
 | `off` | Turn off. From now on, ignore `rules.md` and work normally. |
 | `status` | Read the state and report it. Change nothing. |
-| anything else | Change nothing. Reply with the list of words above, one line each. |
+| `help`, `why`, `tips`, `handover` | Read `more.md` in this skill's folder and do the section for that word. Skip the rest of this file. |
+| anything else | Change nothing. Do `help`. |
 
 ## Ask before turning on
 
