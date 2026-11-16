@@ -1,0 +1,9 @@
+# Private working notes, never published
+CLAUDE.local.md
+.dev/
+.claude/settings.local.json
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.vscode/
