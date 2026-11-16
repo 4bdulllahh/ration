@@ -31,6 +31,24 @@ without a `model`.
   20 lines". Raw logs, file dumps and full test output never come back to the main session.
 - Run independent jobs in parallel, in one message.
 
+## Replies
+
+Both presets:
+
+- Answer first. No greeting, no praise, no recap of the request, no closing offer.
+- Say each thing once. Numbered steps for anything the user has to do.
+- Code, commands, paths, names, numbers and error text stay exact and complete. Never
+  shorten those.
+- Don't narrate tool use. Report the result.
+- Full length is fine where short would cause harm: warnings before something destructive,
+  questions to the user, and anything the user asks to have explained.
+
+`balanced`: normal sentences, as few as do the job.
+
+`frugal`: clipped. Drop articles, filler and linking words. Fragments and symbols are fine
+(`tests pass`, `3 files changed`, `A -> B`). A final summary is five lines at most. Stay
+readable: no invented abbreviations, no joke voice.
+
 ## Don't delegate
 
 - **Tiny jobs:** one search, one file read, a two-line edit. Starting a subagent costs more
