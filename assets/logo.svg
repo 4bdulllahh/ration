@@ -32,17 +32,26 @@
     <ellipse cx="250" cy="418" rx="168" ry="27" fill="#1b1d20"/>
 
     <!-- loaf -->
+    <!-- back of the loaf, offset up and left to give it depth -->
+    <path d="M136 396 V186 C136 114 182 82 232 82 C284 82 324 114 324 186 L354 196 V408 H166 Z"
+          fill="#74400f" stroke="#33170b" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M136 186 C136 114 182 82 232 82 C284 82 324 114 324 186 L354 196 C354 124 314 92 262 92 C212 92 166 124 166 196 Z"
+          fill="#93551f"/>
+    <path d="M136 186 L166 196 M136 396 L166 408" stroke="#33170b" stroke-width="4" stroke-linecap="round"/>
+    <!-- cut face: crust ring, then the lighter crumb -->
     <path d="M166 408 V196 C166 124 212 92 262 92 C314 92 354 124 354 196 V408 Z"
-          fill="url(#bread)" stroke="#33170b" stroke-width="6" stroke-linejoin="round"/>
-    <path d="M166 196 C166 124 212 92 262 92 C314 92 354 124 354 196 C340 150 300 132 262 132 C222 132 182 150 166 196 Z"
-          fill="#7c4519" opacity=".85"/>
+          fill="#a5642a" stroke="#33170b" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M180 405 V198 C180 138 220 106 262 106 C306 106 340 138 340 198 V405 Z" fill="url(#bread)"/>
+    <path d="M198 230 V380" stroke="#e0a660" stroke-width="9" stroke-linecap="round" opacity=".35"/>
 
-    <!-- hand resting on the loaf -->
-    <path d="M150 -10 C150 50 168 96 196 112 C206 132 226 134 236 118 C246 136 270 136 280 118
-             C292 134 314 130 320 110 C352 92 372 46 370 -10 Z"
-          fill="#b9a091" stroke="#3a2018" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M236 118 C234 100 236 86 242 74 M280 118 C280 100 280 86 276 74"
-          fill="none" stroke="#3a2018" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+    <!-- gloved hand resting on the loaf -->
+    <path d="M168 34 C150 70 170 104 198 114 C208 134 228 136 238 120 C248 138 272 138 282 120
+             C294 136 316 132 322 112 C356 98 368 66 352 34 Z"
+          fill="#ddd5cb" stroke="#2a1711" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M238 120 C236 104 238 92 244 82 M282 120 C282 104 282 92 278 82"
+          fill="none" stroke="#2a1711" stroke-width="4" stroke-linecap="round"/>
+    <path d="M232 42 V66 M260 40 V68 M288 42 V66" stroke="#2a1711" stroke-width="4.5" stroke-linecap="round"/>
+    <rect x="150" y="-22" width="220" height="60" rx="28" fill="#ece5db" stroke="#2a1711" stroke-width="5"/>
 
     <!-- knife, coming in from the right -->
     <path d="M44 326 C96 318 150 300 214 284 L452 228 L462 276 L262 330 C176 354 96 362 44 326 Z"
@@ -50,8 +59,10 @@
     <path d="M78 326 C128 316 176 302 226 290 L440 240" fill="none" stroke="#dfe8e8" stroke-width="4"
           stroke-linecap="round" opacity=".55"/>
     <path d="M448 222 L530 204 L540 258 L460 280 Z" fill="#2a1711" stroke="#120806" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M470 196 C492 180 530 184 540 204 L540 262 C524 288 492 290 474 272 C462 250 460 216 470 196 Z"
-          fill="#b9a091" stroke="#3a2018" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M468 198 C482 176 520 172 540 188 L540 276 C522 296 488 294 472 274 C458 252 456 220 468 198 Z"
+          fill="#ddd5cb" stroke="#2a1711" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M470 226 C484 220 498 220 510 226 M472 252 C486 246 500 246 512 252"
+          fill="none" stroke="#2a1711" stroke-width="4" stroke-linecap="round"/>
 
     <!-- the see-through slice, drawn over the knife on purpose -->
     <path d="M232 146 C284 120 352 130 386 168 C396 230 392 300 400 356 C406 398 392 430 350 440
