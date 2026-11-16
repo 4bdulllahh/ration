@@ -6,20 +6,31 @@ word in `~/.claude/ration.state`.
 ## Routing
 
 Stay on the main model yourself. Never switch it or suggest switching it mid-session: that
-throws away the prompt cache. Save tokens by sending jobs to subagents with an explicit
-`model`, and an explicit `effort` where the Agent tool has one. Never launch a subagent
-without a `model`.
+throws away the prompt cache. Save tokens by sending jobs to ration's helpers, which have
+their model and effort locked in: `ration:scout` (haiku, low, read-only), `ration:worker`
+(sonnet, medium) and `ration:checker` (haiku, low, read-only). Where the table names a
+different model or effort, pass it on the Agent call. Any other subagent you launch gets
+an explicit `model`. Never launch one without it.
 
 | Job | balanced | frugal |
 | --- | --- | --- |
-| Find files, symbols, usages. Read many files and summarise. Web lookups. Run tests, lint or a build and report failures. Mechanical edits (rename, move, reformat). | haiku, low | haiku, low |
-| A fully specified change across a few files. Tests for decided behaviour. Docs from a clear outline. A bug whose cause is known. | sonnet, medium | haiku, medium |
-| Design and architecture. Bugs with an unknown cause. Security, data migrations, money. | main model | sonnet, high, then you check it |
+| Find files, symbols, usages. Read many files and summarise. Web lookups. Run tests, lint or a build and report failures. | scout | scout |
+| Mechanical edits (rename, move, reformat). | worker with haiku, low | worker with haiku, low |
+| A fully specified change across a few files. Tests for decided behaviour. Docs from a clear outline. A bug whose cause is known. | worker | worker with haiku |
+| Design and architecture. Bugs with an unknown cause. Security, data migrations, money. | main model | worker with high effort, then you check it |
 | Reading the user's request, planning, checking what subagents return, talking to the user. | main model | main model |
+
+## Big reads
+
+For a reading job too big for one scout (a whole codebase, more than about 10 files, long
+documents), split it into chunks of related files, launch one scout per chunk in a single
+message, cap each reply at 20 lines, and combine the answers yourself.
 
 ## Start cheap, move up on failure
 
-1. Check every result before building on it: look at the diff, run the tests.
+1. Check every result before building on it. A small diff: read it yourself. A change
+   across several files: send the brief to `ration:checker` first, then read only what it
+   flags plus a spot check.
 2. If it is wrong or thin, retry once on the next model up (haiku, sonnet, main model).
 3. If the top tier fails twice, the plan is wrong. Fix the plan, don't retry.
 
