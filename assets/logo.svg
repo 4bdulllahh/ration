@@ -1,61 +1,78 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t">
-  <title id="t">Ration logo: an ink doodle of a knife cutting a slice of bread so thin you can see through it</title>
+  <title id="t">Ration logo: a knife cutting a slice of bread so thin you can see through it</title>
   <defs>
-    <!-- wobbles the lines so they look drawn by hand with a brush pen -->
-    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency=".022" numOctaves="2" seed="11" result="slow"/>
-      <feDisplacementMap in="SourceGraphic" in2="slow" scale="13" result="wobbly"/>
-      <feTurbulence type="fractalNoise" baseFrequency=".11" numOctaves="1" seed="3" result="grit"/>
-      <feDisplacementMap in="wobbly" in2="grit" scale="5"/>
-    </filter>
+    <clipPath id="frame"><rect width="512" height="512" rx="96"/></clipPath>
+    <radialGradient id="room" cx="42%" cy="40%" r="75%">
+      <stop offset="0" stop-color="#6a3320"/>
+      <stop offset=".55" stop-color="#3a1a12"/>
+      <stop offset="1" stop-color="#170a08"/>
+    </radialGradient>
+    <radialGradient id="shade" cx="50%" cy="48%" r="62%">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".6"/>
+    </radialGradient>
+    <linearGradient id="bread" x1="0" x2="1">
+      <stop offset="0" stop-color="#8f5526"/>
+      <stop offset=".35" stop-color="#bd7c3c"/>
+      <stop offset="1" stop-color="#a96a30"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#aab9bb"/>
+      <stop offset="1" stop-color="#5f7378"/>
+    </linearGradient>
   </defs>
 
-  <rect width="512" height="512" rx="96" fill="#fff"/>
+  <g clip-path="url(#frame)">
+    <rect width="512" height="512" fill="url(#room)"/>
 
-  <g filter="url(#ink)" fill="#fff" stroke="#000" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
-    <!-- plate -->
-    <ellipse cx="256" cy="418" rx="212" ry="42"/>
-    <path d="M118 420 C170 440 330 442 398 420" fill="none" stroke-width="7"/>
+    <!-- table and plate -->
+    <path d="M0 408 H512 V512 H0 Z" fill="#1c0e0a"/>
+    <ellipse cx="250" cy="428" rx="222" ry="44" fill="#121416"/>
+    <ellipse cx="250" cy="420" rx="222" ry="44" fill="#2c2f33" stroke="#4a4f55" stroke-width="3"/>
+    <ellipse cx="250" cy="418" rx="168" ry="27" fill="#1b1d20"/>
 
-    <!-- loaf: side, then the cut face -->
-    <path d="M172 198 L142 184 C140 120 190 80 240 84 C292 82 330 112 340 150 L354 198 Z"/>
-    <path d="M142 184 C138 260 140 330 144 398 L172 410 V198 Z"/>
-    <path d="M172 410 C168 340 170 262 172 198 C172 126 216 96 264 96 C316 96 356 126 354 198 C356 270 356 342 352 410 Z"/>
+    <!-- loaf -->
+    <!-- back of the loaf, offset up and left to give it depth -->
+    <path d="M136 396 V186 C136 114 182 82 232 82 C284 82 324 114 324 186 L354 196 V408 H166 Z"
+          fill="#74400f" stroke="#33170b" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M136 186 C136 114 182 82 232 82 C284 82 324 114 324 186 L354 196 C354 124 314 92 262 92 C212 92 166 124 166 196 Z"
+          fill="#93551f"/>
+    <path d="M136 186 L166 196 M136 396 L166 408" stroke="#33170b" stroke-width="4" stroke-linecap="round"/>
+    <!-- cut face: crust ring, then the lighter crumb -->
+    <path d="M166 408 V196 C166 124 212 92 262 92 C314 92 354 124 354 196 V408 Z"
+          fill="#a5642a" stroke="#33170b" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M180 405 V198 C180 138 220 106 262 106 C306 106 340 138 340 198 V405 Z" fill="url(#bread)"/>
+    <path d="M198 230 V380" stroke="#e0a660" stroke-width="9" stroke-linecap="round" opacity=".35"/>
 
-    <!-- gloved hand on top of the loaf -->
-    <path d="M170 40 C152 74 172 106 200 116 C210 136 230 138 240 122 C250 140 274 140 284 122
-             C296 138 318 134 324 114 C358 100 370 70 354 40 Z"/>
-    <path d="M240 122 C238 106 240 94 246 84 M284 122 C284 106 284 94 280 84" fill="none" stroke-width="8"/>
-    <path d="M234 46 V68 M262 44 V70 M290 46 V68" fill="none" stroke-width="8"/>
-    <rect x="156" y="-16" width="212" height="56" rx="26"/>
+    <!-- gloved hand resting on the loaf -->
+    <path d="M168 34 C150 70 170 104 198 114 C208 134 228 136 238 120 C248 138 272 138 282 120
+             C294 136 316 132 322 112 C356 98 368 66 352 34 Z"
+          fill="#ddd5cb" stroke="#2a1711" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M238 120 C236 104 238 92 244 82 M282 120 C282 104 282 92 278 82"
+          fill="none" stroke="#2a1711" stroke-width="4" stroke-linecap="round"/>
+    <path d="M232 42 V66 M260 40 V68 M288 42 V66" stroke="#2a1711" stroke-width="4.5" stroke-linecap="round"/>
+    <rect x="150" y="-22" width="220" height="60" rx="28" fill="#ece5db" stroke="#2a1711" stroke-width="5"/>
 
-    <!-- knife: blade, solid handle, gloved hand -->
-    <path d="M40 330 C96 320 150 302 214 286 L446 232 L456 280 L262 332 C176 356 96 364 40 330 Z"/>
-    <path d="M92 330 C140 320 186 306 232 294" fill="none" stroke-width="6"/>
-    <path d="M444 226 L530 206 L540 262 L456 284 Z" fill="#000"/>
-    <path d="M470 196 C484 174 522 172 544 190 V282 C524 300 490 298 474 278 C460 254 458 220 470 196 Z"/>
-    <path d="M474 228 C488 222 502 222 514 228 M476 254 C490 248 504 248 516 254" fill="none" stroke-width="7"/>
+    <!-- knife, coming in from the right -->
+    <path d="M44 326 C96 318 150 300 214 284 L452 228 L462 276 L262 330 C176 354 96 362 44 326 Z"
+          fill="url(#steel)" stroke="#1b2428" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M78 326 C128 316 176 302 226 290 L440 240" fill="none" stroke="#dfe8e8" stroke-width="4"
+          stroke-linecap="round" opacity=".55"/>
+    <path d="M448 222 L530 204 L540 258 L460 280 Z" fill="#2a1711" stroke="#120806" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M468 198 C482 176 520 172 540 188 L540 276 C522 296 488 294 472 274 C458 252 456 220 468 198 Z"
+          fill="#ddd5cb" stroke="#2a1711" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M470 226 C484 220 498 220 510 226 M472 252 C486 246 500 246 512 252"
+          fill="none" stroke="#2a1711" stroke-width="4" stroke-linecap="round"/>
 
-    <!-- the slice: outline only, so the loaf and the knife show through it -->
-    <path d="M234 150 C286 124 354 134 388 172 C398 234 394 302 402 358 C408 400 394 432 352 442
-             C308 452 248 450 216 436 C194 426 198 404 216 396 C206 368 242 354 246 332
-             C250 306 270 288 264 264 C248 260 226 252 224 230 C222 202 226 174 234 150 Z"
-          fill="none" stroke-width="8"/>
-    <path d="M216 396 C258 414 332 414 394 394 M212 416 C260 430 336 430 400 412 M228 432 C272 442 332 442 374 432"
-          fill="none" stroke-width="6"/>
-  </g>
+    <!-- the see-through slice, drawn over the knife on purpose -->
+    <path d="M232 146 C284 120 352 130 386 168 C396 230 392 300 400 356 C406 398 392 430 350 440
+             C306 450 246 448 214 434 C192 424 196 402 214 394 C204 366 240 352 244 330
+             C248 304 268 286 262 262 C246 258 224 250 222 228 C220 200 224 170 232 146 Z"
+          fill="#f2b76c" fill-opacity=".42" stroke="#3d1c0e" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M214 394 C256 412 330 412 392 392" fill="none" stroke="#3d1c0e" stroke-width="3.5" stroke-linecap="round" opacity=".75"/>
+    <path d="M210 414 C258 428 334 428 398 410" fill="none" stroke="#3d1c0e" stroke-width="3.5" stroke-linecap="round" opacity=".55"/>
+    <path d="M226 430 C270 440 330 440 372 430" fill="none" stroke="#3d1c0e" stroke-width="3" stroke-linecap="round" opacity=".4"/>
 
-  <!-- ink spatter -->
-  <g fill="#000" filter="url(#ink)">
-    <circle cx="74" cy="92" r="6"/><circle cx="96" cy="118" r="3"/><circle cx="60" cy="140" r="2.5"/>
-    <ellipse cx="108" cy="70" rx="7" ry="3" transform="rotate(-30 108 70)"/>
-    <circle cx="418" cy="96" r="5"/><circle cx="440" cy="124" r="2.5"/><circle cx="402" cy="62" r="3"/>
-    <ellipse cx="452" cy="80" rx="6" ry="2.5" transform="rotate(40 452 80)"/>
-    <circle cx="66" cy="250" r="3.5"/><circle cx="92" cy="272" r="2"/><circle cx="52" cy="392" r="4"/>
-    <circle cx="462" cy="352" r="4.5"/><circle cx="478" cy="378" r="2.5"/><circle cx="446" cy="330" r="2"/>
-    <circle cx="120" cy="472" r="3.5"/><circle cx="300" cy="480" r="2.5"/><circle cx="392" cy="474" r="4"/>
-    <ellipse cx="206" cy="484" rx="6" ry="2.5" transform="rotate(-15 206 484)"/>
-    <circle cx="296" cy="250" r="2.5"/><circle cx="318" cy="226" r="2"/><circle cx="204" cy="330" r="2.5"/>
-    <circle cx="330" cy="360" r="2"/>
+    <rect width="512" height="512" fill="url(#shade)"/>
   </g>
 </svg>
