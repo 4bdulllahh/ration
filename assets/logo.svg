@@ -1,34 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t">
   <title id="t">Ration logo: a knife cutting a slice of bread so thin you can see through it</title>
-  <rect width="512" height="512" rx="96" fill="#2a1511"/>
-  <ellipse cx="256" cy="268" rx="230" ry="210" fill="#3a1d15"/>
+  <defs>
+    <clipPath id="frame"><rect width="512" height="512" rx="96"/></clipPath>
+    <radialGradient id="room" cx="42%" cy="40%" r="75%">
+      <stop offset="0" stop-color="#6a3320"/>
+      <stop offset=".55" stop-color="#3a1a12"/>
+      <stop offset="1" stop-color="#170a08"/>
+    </radialGradient>
+    <radialGradient id="shade" cx="50%" cy="48%" r="62%">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".6"/>
+    </radialGradient>
+    <linearGradient id="bread" x1="0" x2="1">
+      <stop offset="0" stop-color="#8f5526"/>
+      <stop offset=".35" stop-color="#bd7c3c"/>
+      <stop offset="1" stop-color="#a96a30"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#aab9bb"/>
+      <stop offset="1" stop-color="#5f7378"/>
+    </linearGradient>
+  </defs>
 
-  <!-- plate -->
-  <ellipse cx="256" cy="414" rx="206" ry="46" fill="#15181c"/>
-  <ellipse cx="256" cy="406" rx="206" ry="46" fill="#23272d" stroke="#3d434b" stroke-width="4"/>
-  <ellipse cx="256" cy="404" rx="150" ry="28" fill="#1a1d22"/>
+  <g clip-path="url(#frame)">
+    <rect width="512" height="512" fill="url(#room)"/>
 
-  <!-- loaf -->
-  <path d="M168 398 V196 C168 132 214 104 262 104 C310 104 352 132 352 196 V398 Z"
-        fill="#c8853f" stroke="#4a2412" stroke-width="7" stroke-linejoin="round"/>
-  <path d="M168 196 C168 132 214 104 262 104 C310 104 352 132 352 196 C352 214 336 222 322 212 C300 150 220 150 198 212 C184 222 168 214 168 196 Z"
-        fill="#9a5a24"/>
-  <path d="M190 240 V380" stroke="#dba05a" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+    <!-- table and plate -->
+    <path d="M0 408 H512 V512 H0 Z" fill="#1c0e0a"/>
+    <ellipse cx="250" cy="428" rx="222" ry="44" fill="#121416"/>
+    <ellipse cx="250" cy="420" rx="222" ry="44" fill="#2c2f33" stroke="#4a4f55" stroke-width="3"/>
+    <ellipse cx="250" cy="418" rx="168" ry="27" fill="#1b1d20"/>
 
-  <!-- knife -->
-  <g stroke-linejoin="round">
-    <path d="M56 338 C92 300 150 286 214 280 L418 248 L426 292 L196 346 C140 358 88 358 56 338 Z"
-          fill="#93a7b0" stroke="#27343a" stroke-width="6"/>
-    <path d="M84 334 C124 310 170 302 218 296 L404 266" fill="none" stroke="#d3dfe4" stroke-width="5" stroke-linecap="round" opacity=".8"/>
-    <rect x="414" y="238" width="96" height="58" rx="18" transform="rotate(-9 414 267)"
-          fill="#4a2a1c" stroke="#1d0f0a" stroke-width="6"/>
+    <!-- loaf -->
+    <path d="M166 408 V196 C166 124 212 92 262 92 C314 92 354 124 354 196 V408 Z"
+          fill="url(#bread)" stroke="#33170b" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M166 196 C166 124 212 92 262 92 C314 92 354 124 354 196 C340 150 300 132 262 132 C222 132 182 150 166 196 Z"
+          fill="#7c4519" opacity=".85"/>
+
+    <!-- hand resting on the loaf -->
+    <path d="M150 -10 C150 50 168 96 196 112 C206 132 226 134 236 118 C246 136 270 136 280 118
+             C292 134 314 130 320 110 C352 92 372 46 370 -10 Z"
+          fill="#b9a091" stroke="#3a2018" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M236 118 C234 100 236 86 242 74 M280 118 C280 100 280 86 276 74"
+          fill="none" stroke="#3a2018" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+
+    <!-- knife, coming in from the right -->
+    <path d="M44 326 C96 318 150 300 214 284 L452 228 L462 276 L262 330 C176 354 96 362 44 326 Z"
+          fill="url(#steel)" stroke="#1b2428" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M78 326 C128 316 176 302 226 290 L440 240" fill="none" stroke="#dfe8e8" stroke-width="4"
+          stroke-linecap="round" opacity=".55"/>
+    <path d="M448 222 L530 204 L540 258 L460 280 Z" fill="#2a1711" stroke="#120806" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M470 196 C492 180 530 184 540 204 L540 262 C524 288 492 290 474 272 C462 250 460 216 470 196 Z"
+          fill="#b9a091" stroke="#3a2018" stroke-width="5" stroke-linejoin="round"/>
+
+    <!-- the see-through slice, drawn over the knife on purpose -->
+    <path d="M232 146 C284 120 352 130 386 168 C396 230 392 300 400 356 C406 398 392 430 350 440
+             C306 450 246 448 214 434 C192 424 196 402 214 394 C204 366 240 352 244 330
+             C248 304 268 286 262 262 C246 258 224 250 222 228 C220 200 224 170 232 146 Z"
+          fill="#f2b76c" fill-opacity=".42" stroke="#3d1c0e" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M214 394 C256 412 330 412 392 392" fill="none" stroke="#3d1c0e" stroke-width="3.5" stroke-linecap="round" opacity=".75"/>
+    <path d="M210 414 C258 428 334 428 398 410" fill="none" stroke="#3d1c0e" stroke-width="3.5" stroke-linecap="round" opacity=".55"/>
+    <path d="M226 430 C270 440 330 440 372 430" fill="none" stroke="#3d1c0e" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+
+    <rect width="512" height="512" fill="url(#shade)"/>
   </g>
-
-  <!-- the see-through slice, drawn over the knife on purpose -->
-  <path d="M236 150 C282 128 344 138 372 176 C384 232 380 300 386 356 C390 392 372 420 330 426
-           C290 432 244 432 222 420 C204 410 210 388 226 380 C214 352 232 330 222 300
-           C214 262 216 196 236 150 Z"
-        fill="#f0b262" fill-opacity=".5" stroke="#5c2f15" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M226 380 C262 396 318 396 356 380" fill="none" stroke="#5c2f15" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-  <path d="M232 404 C270 414 318 414 352 402" fill="none" stroke="#5c2f15" stroke-width="4" stroke-linecap="round" opacity=".5"/>
 </svg>
