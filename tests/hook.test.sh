@@ -3,6 +3,7 @@
 # Run: sh tests/hook.test.sh
 set -e
 hook="$(dirname "$0")/../hooks/ration.sh"
+set="$(dirname "$0")/../skills/ration/state.sh"
 HOME=$(mktemp -d)
 export HOME
 mkdir "$HOME/.claude"
@@ -43,6 +44,13 @@ sh "$hook" prompt | grep -q "(frugal)" || fail "frugal with Windows line ending"
 
 echo garbage > "$state"
 sh "$hook" prompt | grep -q "(balanced)" || fail "unknown preset falls back to balanced"
+
+[ "$(sh "$set" frugal)" = "on (frugal)" ] || fail "set frugal"
+[ "$(cat "$state")" = frugal ] || fail "set should write the state file"
+[ "$(sh "$set" off)" = off ] || fail "set off"
+[ ! -e "$state" ] || fail "set off should remove the state file"
+sh "$set" "x; rm -rf /" 2>/dev/null && fail "set should reject unknown words"
+[ ! -e "$state" ] || fail "a rejected set should change nothing"
 
 rm -rf "$HOME"
 echo "hook tests passed"

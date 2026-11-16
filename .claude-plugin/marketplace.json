@@ -1,0 +1,11 @@
+{
+  "name": "ration",
+  "owner": { "name": "Abdullah", "url": "https://abdullahexe.online" },
+  "plugins": [
+    {
+      "name": "ration",
+      "source": "./",
+      "description": "Make Claude Code spend fewer tokens: easy jobs go to cheaper models and lower effort, replies stay short."
+    }
+  ]
+}
