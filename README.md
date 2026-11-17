@@ -104,6 +104,17 @@ state script. Choose "Yes, and don't ask again".
 - **Helpers from other plugins need a model too** while ration is on. Claude is told how
   to fix the launch and tries again.
 
+## More savings you control
+
+Ration can't type these for you, but they stack with it. `/ration tips` points out the
+ones that fit your session.
+
+- **`/model opusplan`**: Opus plans, then Claude Code switches to Sonnet by itself for the
+  work. Pick it at the start of a session.
+- **`/effort low` or `/effort medium`**: less thinking on the main model for routine work.
+- **`/context`**: shows what fills Claude's memory. Every connected tool server is paid for
+  on every message, so turn off the ones you don't use, and keep CLAUDE.md short.
+
 ## Privacy
 
 Everything stays on your computer. Ration keeps two small files in your `.claude` folder:

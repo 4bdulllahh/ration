@@ -42,9 +42,11 @@ claim: look, don't guess.
   about 200 lines, say which and how long.
 - **Unused tools:** `/context` shows what fills the context. Connectors and plugins the
   user doesn't need for this project can be turned off.
-- **Main model and effort:** pick them with `/model` at the start of a session, not in
-  the middle, because switching mid-session throws away the cache. With ration on, a
-  cheaper main model still gets hard jobs done through helpers.
+- **Main model:** pick it with `/model` at the start of a session, not in the middle,
+  because switching mid-session throws away the cache. `/model opusplan` plans on Opus and
+  does the work on Sonnet by itself. With ration on, a cheaper main model still gets hard
+  jobs done through helpers.
+- **Routine work:** `/effort low` or `/effort medium` makes the main model think less.
 - **Pasted logs and files:** give the file path instead, so only the needed part is read.
 - **Many small messages:** put related asks in one message.
 - **Ration is off:** `/ration on`.
